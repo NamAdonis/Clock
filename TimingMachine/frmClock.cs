@@ -4,15 +4,16 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TimingMachine
 {
-    public partial class Form1 : Form
+    public partial class frmClock : Form
     {
-        public Form1()
+        public frmClock()
         {
             InitializeComponent();
         }
@@ -66,6 +67,9 @@ namespace TimingMachine
                         if(countHour == 24)
                         {
                             ClockTick.Stop();
+                            textBox2.Text = "0";
+                            textBox3.Text = "0";
+                            textBox4.Text = "0";
                             MessageBox.Show("Over the time of a day. Restart for continuing count");
                         }
                         else
@@ -88,6 +92,16 @@ namespace TimingMachine
             {
                 textBox4.Text = countMili.ToString();
             }
+        }
+
+        private void Pause_Click(object sender, EventArgs e)
+        {
+            ClockTick.Stop();
+        }
+
+        private void Continue_Click(object sender, EventArgs e)
+        {
+            ClockTick.Start();
         }
     }
 }
