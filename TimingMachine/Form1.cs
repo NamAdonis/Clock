@@ -65,6 +65,7 @@ namespace TimingMachine
                         countHour++;
                         if(countHour == 24)
                         {
+                            ClockTick.Stop();
                             MessageBox.Show("Over the time of a day. Restart for continuing count");
                         }
                         else
